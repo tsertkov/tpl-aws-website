@@ -1,0 +1,30 @@
+{
+  "projectName": "tpl-aws-website",
+  "default": {
+    "region": "eu-central-1",
+    "githubRepo": "tsertkov/tpl-aws-website",
+    "logsRetentionInDays": 731,
+    "errorResponseFileKey": "404.html",
+    "acmCertificateArn": "xxx",
+    "domain": {
+      "name": "tpl-aws-website.alekswrite.com",
+      "hostedZoneId": "Z07396821BXVTM0G94VCB"
+    },
+    "debug": "false"
+  },
+  "prd": {
+    "domain": {
+      "name": "tpl-aws-website.alekswrite.com"
+    }
+  },
+  "stg": {
+    "domain": {
+      "name": "tpl-aws-website.stg.alekswrtie.com"
+    },
+    "logsRetentionInDays": 14,
+    "basicAuth": "true",
+    "basicAuthUsername": "staging",
+    "basicAuthPassword": "letmein",
+    "debug": "true"
+  }
+}
