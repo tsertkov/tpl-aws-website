@@ -1,7 +1,6 @@
 # tpl-aws-website
 
-> [!IMPORTANT]
-> Template monorepo with a AWS-hosted static website infrastructure and automations.
+Template monorepo with an AWS-hosted static website infrastructure and CI/CD automations.
 
 ## Monorepo sub-projects
 
