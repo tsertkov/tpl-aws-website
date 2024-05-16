@@ -23,4 +23,5 @@ infra-%:
 
 deploy: \
 	infra-deploy \
+	fe-build \
 	fe-deploy
