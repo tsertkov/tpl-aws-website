@@ -68,8 +68,8 @@ REG_NAME = $(call aws_region_to_short_name,$(REGION))
 
 # tags added to cloudformation stacks
 TAGS = "project=$(DOMAIN) domain=$(DOMAIN) environment=$(ENV)"
+STACK_NAME = $(PROJECT_NAME)-$(ENV)-$(REG_NAME)
 
-deploy: STACK_NAME ?= $(PROJECT_NAME)-$(ENV)-$(REG_NAME)
 deploy: \
 	assert-STACK_NAME \
 	assert-REGION \
@@ -106,7 +106,7 @@ deploy: \
 			"ParameterKey=GithubTokenSub,ParameterValue='repo:$(GITHUB_REPO):environment:$(ENV)'" \
 			"ParameterKey=AcmCertificate,ParameterValue='$(ACM_CERTIFICATE)'"
 
-deploy-certificate: STACK_NAME ?= $(PROJECT_NAME)-certificate
+deploy-certificate: STACK_NAME = $(PROJECT_NAME)-certificate
 deploy-certificate: \
 	assert-STACK_NAME \
 	assert-CERTIFICATE_DOMAIN \
@@ -125,7 +125,7 @@ deploy-certificate: \
 			"ParameterKey=DomainName,ParameterValue=$(CERTIFICATE_DOMAIN)" \
 			"ParameterKey=HostedZoneId,ParameterValue=$(HOSTED_ZONE_ID)"
 
-deploy-github-oidc: STACK_NAME ?= github-oidc
+deploy-github-oidc: STACK_NAME = github-oidc
 deploy-github-oidc: \
 	assert-STACK_NAME \
 	assert-REGION \
