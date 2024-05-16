@@ -26,6 +26,8 @@
     "basicAuth": "true",
     "basicAuthUsername": "staging",
     "basicAuthPassword": "letmein",
-    "debug": "true"
+    "debug": "true",
+    "s3bucket": "tpl-aws-website-stg-euc1-webbucket-0stjwvlsrumd",
+    "cloudfrontId": "E110YJN4TYH70Q"
   }
 }
