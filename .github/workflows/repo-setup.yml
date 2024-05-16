@@ -10,11 +10,12 @@ on:
 
 jobs:
   setup-repo:
-    name: Initial repository setup
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
-      - name: Setup repository
+      - name: Add deployment environments
         run: |
           gh variable set REGION --body eu-central-1 --env prd
           gh variable set REGION --body eu-central-1 --env stg
