@@ -1,4 +1,4 @@
-name: 'setup-repo'
+name: 'repo : setup'
 
 permissions:
   id-token: write
