@@ -9,12 +9,15 @@ CONFIG_FILE = ../config.json
 
 define HELP_SCREEN
   deploy - deploy infrastructure
+  deploy-certificate - deploy ACM certificate
+  deploy-github-oidc - deploy GitHub OIDC
   test - test infrastructure
 endef
 
 # extract config vars from config file
 CONFIG_VALUES := $(shell jq -rc '[\
 	.projectName // false \
+	, .certificateDomain // false \
 	, .$(ENV).region // .default.region // false \
 	, .$(ENV).domain.name // .default.domain.name // false \
 	, .$(ENV).domain.hostedZoneId // .default.domain.hostedZoneId \
@@ -25,27 +28,29 @@ CONFIG_VALUES := $(shell jq -rc '[\
 	, .$(ENV).basicAuthUsername // .default.basicAuthUsername // false \
 	, .$(ENV).basicAuthPassword // .default.basicAuthPassword // false \
 	, .$(ENV).githubRepo // .default.githubRepo // false \
-	, .$(ENV).acmCertificateArn // .default.acmCertificateArn // false \
+	, .$(ENV).acmCertificateId // .default.acmCertificateId // false \
 ] | @tsv' $(CONFIG_FILE))
 
 # extract vars from config file
 read_config_var = $(word $(1), $(CONFIG_VALUES))
 PROJECT_NAME := $(call read_config_var,1)
-REGION := $(call read_config_var,2)
-DOMAIN := $(call read_config_var,3)
-HOSTED_ZONE_ID := $(call read_config_var,4)
-ERROR_RESPONSE_FILE := $(call read_config_var,5)
-WITH_DEBUG := $(call read_config_var,6)
-LOGS_RETENTION_IN_DAYS := $(call read_config_var,7)
-WITH_BASIC_AUTH := $(call read_config_var,8)
-BASIC_AUTH_USERNAME := $(call read_config_var,9)
-BASIC_AUTH_PASSWORD := $(call read_config_var,10)
-GITHUB_REPO := $(call read_config_var,11)
-ACM_CERTIFICATE := $(call read_config_var,12)
+CERTIFICATE_DOMAIN := $(call read_config_var,2)
+REGION := $(call read_config_var,3)
+DOMAIN := $(call read_config_var,4)
+HOSTED_ZONE_ID := $(call read_config_var,5)
+ERROR_RESPONSE_FILE := $(call read_config_var,6)
+WITH_DEBUG := $(call read_config_var,7)
+LOGS_RETENTION_IN_DAYS := $(call read_config_var,8)
+WITH_BASIC_AUTH := $(call read_config_var,9)
+BASIC_AUTH_USERNAME := $(call read_config_var,10)
+BASIC_AUTH_PASSWORD := $(call read_config_var,11)
+GITHUB_REPO := $(call read_config_var,12)
+ACM_CERTIFICATE := $(call read_config_var,13)
 
 # validate that required config vars are set
 assert_set = $(if $(filter $(1),false),$(error $(1) is not set),)
 $(call assert_set,$(PROJECT_NAME))
+$(call assert_set,$(CERTIFICATE_DOMAIN))
 $(call assert_set,$(REGION))
 $(call assert_set,$(DOMAIN))
 $(call assert_set,$(HOSTED_ZONE_ID))
@@ -64,9 +69,7 @@ REG_NAME = $(call aws_region_to_short_name,$(REGION))
 # tags added to cloudformation stacks
 TAGS = "project=$(DOMAIN) domain=$(DOMAIN) environment=$(ENV)"
 
-# stack names
-STACK_NAME = $(PROJECT_NAME)-$(ENV)-$(REG_NAME)
-
+deploy: STACK_NAME ?= $(PROJECT_NAME)-$(ENV)-$(REG_NAME)
 deploy: \
 	assert-STACK_NAME \
 	assert-REGION \
@@ -78,7 +81,8 @@ deploy: \
 	assert-WITH_BASIC_AUTH \
 	assert-ERROR_RESPONSE_FILE \
 	assert-GITHUB_REPO \
-	assert-ACM_CERTIFICATE
+	assert-ACM_CERTIFICATE \
+	require-sam
 	$(call _announce_target, $@)
 	@sam deploy \
 		--resolve-s3 \
@@ -101,6 +105,39 @@ deploy: \
 			"ParameterKey=ErrorResponseFileKey,ParameterValue='$(ERROR_RESPONSE_FILE)'" \
 			"ParameterKey=GithubTokenSub,ParameterValue='repo:$(GITHUB_REPO):environment:$(ENV)'" \
 			"ParameterKey=AcmCertificate,ParameterValue='$(ACM_CERTIFICATE)'"
+
+deploy-certificate: STACK_NAME ?= $(PROJECT_NAME)-certificate
+deploy-certificate: \
+	assert-STACK_NAME \
+	assert-CERTIFICATE_DOMAIN \
+	assert-HOSTED_ZONE_ID \
+	require-sam
+	$(call _announce_target, $@)
+	@sam deploy \
+		--resolve-s3 \
+		--template-file certificate.yaml \
+		--confirm-changeset \
+		--no-fail-on-empty-changeset \
+		--region us-east-1 \
+		--stack-name $(STACK_NAME) \
+		--tags "project=$(CERTIFICATE_DOMAIN) domain=$(CERTIFICATE_DOMAIN)" \
+		--parameter-overrides \
+			"ParameterKey=DomainName,ParameterValue=$(CERTIFICATE_DOMAIN)" \
+			"ParameterKey=HostedZoneId,ParameterValue=$(HOSTED_ZONE_ID)"
+
+deploy-github-oidc: STACK_NAME ?= github-oidc
+deploy-github-oidc: \
+	assert-STACK_NAME \
+	assert-REGION \
+	require-sam
+	$(call _announce_target, $@)
+	@sam deploy \
+		--resolve-s3 \
+		--template-file github-oidc.yaml \
+		--confirm-changeset \
+		--no-fail-on-empty-changeset \
+		--region $(REGION) \
+		--stack-name $(STACK_NAME)
 
 test: \
 	require-sam \

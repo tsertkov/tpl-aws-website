@@ -10,6 +10,10 @@
 
 ## Usage
 
+> [!IMPORTANT]
+> Make sure to provision ACM certificate and GitHub OIDC before deploying infrastructure
+> by running `make infra-deploy-certificate` and `make infra-deploy-github-oidc`.
+
 ```
 $ make
 '''
