@@ -44,6 +44,10 @@ build: \
 	assert-DOMAIN \
 	require-envsubst \
 	require-env \
+	require-xargs \
+	require-find \
+	require-mkdir \
+	require-cp \
 	clean
 	$(call _announce_target, $@)
 	@mkdir -p ./dist
