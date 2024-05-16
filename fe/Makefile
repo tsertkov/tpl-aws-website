@@ -43,20 +43,14 @@ build: \
 	assert-ENV \
 	assert-DOMAIN \
 	require-envsubst \
-	require-env \
-	require-xargs \
-	require-find \
 	require-mkdir \
 	require-cp \
 	clean
 	$(call _announce_target, $@)
 	@mkdir -p ./dist
-	@cd src && ls *.tpl **/*.tpl 2>/dev/null \
-		| xargs -I{} sh -c 'mkdir -p ../dist/$$(dirname {}) && ENV=$(ENV) DOMAIN=$(DOMAIN) envsubst < {} > ../dist/{}'
-	@cd dist && find . -type f -name '*.tpl' \
-		| xargs -I{} sh -c 'mv {} $$(echo {} | sed "s/\.tpl$$//")'
-	@cd src && find . -type f -not -name '*.tpl' \
-		| xargs -I{} sh -c 'mkdir -p ../dist/$$(dirname {}) && cp {} ../dist/{}'
+	@ENV=$(ENV) DOMAIN=$(DOMAIN) envsubst < ./src/index.html.tpl > ./dist/index.html
+	@cp src/404.html dist/404.html
+	@cp src/robots.txt dist/robots.txt
 
 clean: \
 	require-envsubst
