@@ -48,11 +48,11 @@ build: \
 	$(call _announce_target, $@)
 	@mkdir -p ./dist
 	@cd src && ls *.tpl **/*.tpl 2>/dev/null \
-		| xargs -L1 -I{} sh -c 'mkdir -p ../dist/$$(dirname {}) && ENV=$(ENV) DOMAIN=$(DOMAIN) envsubst < {} > ../dist/{}'
+		| xargs -I{} sh -c 'mkdir -p ../dist/$$(dirname {}) && ENV=$(ENV) DOMAIN=$(DOMAIN) envsubst < {} > ../dist/{}'
 	@cd dist && find . -type f -name '*.tpl' \
-		| xargs -L1 -I{} sh -c 'mv {} $$(echo {} | sed "s/\.tpl$$//")'
+		| xargs -I{} sh -c 'mv {} $$(echo {} | sed "s/\.tpl$$//")'
 	@cd src && find . -type f -not -name '*.tpl' \
-		| xargs -L1 -I{} sh -c 'mkdir -p ../dist/$$(dirname {}) && cp {} ../dist/{}'
+		| xargs -I{} sh -c 'mkdir -p ../dist/$$(dirname {}) && cp {} ../dist/{}'
 
 clean: \
 	require-envsubst
