@@ -2,6 +2,17 @@
 
 Template monorepo with an AWS-hosted static website infrastructure and CI/CD automations.
 
+## CICD Setup
+
+Set the following Environments and Environment Variables in GitHub repository settings to enable deployment workflow.
+
+- Environments:
+  - `prd` - Production
+  - `stg` - Staging
+- Environment variables:
+  - `REGION` - AWS region environment is deployed to
+  - `AWS_CI_ROLE` - Deployment AWS Role ARN
+
 ## Monorepo sub-projects
 
 - `fe/` - Frontend
