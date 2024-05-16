@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Add deployment environments
         run: |
-          gh variable set REGION --body eu-central-1 --env prd
-          gh variable set REGION --body eu-central-1 --env stg
-          gh variable set AWS_AWS_CI_ROLE --body change-me --env prd
-          gh variable set AWS_AWS_CI_ROLE --body change-me --env stg
+          gh variable set REGION --body eu-central-1 --env prd --repo ${{ github.repository }}
+          gh variable set REGION --body eu-central-1 --env stg --repo ${{ github.repository }}
+          gh variable set AWS_AWS_CI_ROLE --body change-me --env prd --repo ${{ github.repository }}
+          gh variable set AWS_AWS_CI_ROLE --body change-me --env stg --repo ${{ github.repository }}
