@@ -1,9 +1,9 @@
 name: 'repo : setup'
 
 permissions:
-  id-token: write
-  contents: read
-  
+  actions: write
+  deployments: write
+
 on:
   workflow_dispatch:
   fork:
