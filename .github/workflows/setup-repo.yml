@@ -1,0 +1,22 @@
+name: 'setup-repo'
+
+permissions:
+  id-token: write
+  contents: read
+  
+on:
+  workflow_dispatch:
+  fork:
+
+jobs:
+  setup-repo:
+    name: Initial repository setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup repository
+        run: |
+          gh variable set REGION --body eu-central-1 --env prd
+          gh variable set REGION --body eu-central-1 --env stg
+          gh variable set AWS_AWS_CI_ROLE --body change-me --env prd
+          gh variable set AWS_AWS_CI_ROLE --body change-me --env stg
