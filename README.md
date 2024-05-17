@@ -29,6 +29,17 @@ To enable the deployment workflow, configure the following Environments and Envi
   - `AWS_REGION` - AWS region environment is deployed to
   - `AWS_ROLE` - AWS CI/CD Role ARN
 
+### Deploy infrastructure
+
+```sh
+make infra-deploy-certificate
+make infra-deploy-github-oid
+make infra-deploy ENV=stg
+make infra-deploy ENV=prd
+```
+
+Use `CDRoleArn` value from `infra-deploy` outputs to update `AWS_ROLE` environment variable for a corresponding environment in repository settings.
+
 ## Infrastructure and Flow Diagram
 
 ![Infrastructure Diagram](https://raw.githubusercontent.com/tsertkov/tpl-aws-website/main/docs/tpl-aws-website.svg)
@@ -57,18 +68,15 @@ To enable the deployment workflow, configure the following Environments and Envi
 
 ## Usage
 
-> **⚠️ Important**
->
-> Make sure to provision the ACM certificate and GitHub OIDC before deploying the infrastructure by running:
->
-> ```sh
-> make infra-deploy-certificate
-> make infra-deploy-github-oidc
-> ```
+1. Create new repository from this template.
+2. Update README.md as necessary.
+3. Update config.json as necessary.
+4. [Setup CI/CD](#cicd-setup).
+5. ... and have fun.
 
-### Available Commands
+### Makefile
 
-To get started, run `make` in your terminal. Here are the available targets:
+Run `make` in your terminal. Here are the available targets:
 
 ```sh
 make
