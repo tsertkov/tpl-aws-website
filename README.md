@@ -16,7 +16,7 @@ A monorepo template for an AWS-hosted static website, complete with infrastructu
 1. [Start new repository](https://github.com/new?template_name=tpl-aws-website&template_owner=tsertkov) from this template.
 2. Update config.json as necessary.
 3. Go through [Setup](#setup) steps.
-4. Edit fe/src files, git add, git commit, git push.
+4. Edit `fe/src` files, `git add`, `git commit`, `git push`, etc.
 5. Vaildate `stg` deployment and run `deploy` workflow for `prd` env.
 
 ### Makefile
