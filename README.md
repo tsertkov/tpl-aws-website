@@ -66,6 +66,8 @@ make infra-deploy ENV=stg
 make infra-deploy ENV=prd
 ```
 
+Update `s3bucket` and `cloudfrontId` in `config.json` with values returned in stack outputs.
+
 ### CI/CD
 
 To enable the deployment workflow, configure the following Environments and Environment Variables in your GitHub repository settings:
