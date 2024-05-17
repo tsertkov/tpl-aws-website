@@ -21,10 +21,10 @@ A monorepo template for an AWS-hosted static website, complete with infrastructu
 ## Usage
 
 1. [Start new repository](https://github.com/new?template_name=tpl-aws-website&template_owner=tsertkov) from this template.
-2. Update README.md as necessary.
-3. Update config.json as necessary.
-4. [Setup CI/CD](#cicd-setup).
-5. ... and have fun.
+2. Update config.json as necessary.
+3. [Setup CI/CD](#cicd-setup).
+4. Edit fe/src files, git add, git commit, git push
+5. Vaildate `stg` deployment and run `deploy` workflow for `prd` env.
 
 ### Makefile
 
