@@ -1,4 +1,4 @@
-[![](docs/use-this-template-btn.png)](/new?template_name=tpl-aws-website&template_owner=tsertkov)
+[![](docs/use-this-template-btn.png)](https://github.com/new?template_name=tpl-aws-website&template_owner=tsertkov)
 
 # tpl-aws-website
 
