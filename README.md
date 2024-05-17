@@ -33,24 +33,24 @@ To enable the deployment workflow, configure the following Environments and Envi
 
 ![Infrastructure Diagram](https://raw.githubusercontent.com/tsertkov/tpl-aws-website/main/docs/tpl-aws-website.svg)
 
-**0. Common AWS Resources**
+### 0. Common AWS Resources
 
-- **0.1**: IAM OIDCProvider for GitHub.
-- **0.2**: Route53 DNS zone for creating DNS records.
-- **0.3**: ACM certificate for CloudFront.
+1. IAM OIDCProvider for GitHub.
+2. Route53 DNS zone for creating DNS records.
+3. ACM certificate for CloudFront.
 
 ### 1. Developer Flow
 
-1. **1.1**: Developer pushes updates to a GitHub repository.
-2. **1.2**: GitHub Actions triggers the `deploy` workflow when code update conditions are met.
-3. **1.3**: GitHub workflow uploads website files to an S3 bucket using the CI/CD Role.
-4. **1.4**: GitHub workflow triggers cache invalidation in CloudFront using the CI/CD Role.
+1. Developer pushes updates to a GitHub repository.
+2. GitHub Actions triggers the `deploy` workflow when code update conditions are met.
+3. GitHub workflow uploads website files to an S3 bucket using the CI/CD Role.
+4. GitHub workflow triggers cache invalidation in CloudFront using the CI/CD Role.
 
 ### 2. User Flow
 
-1. **2.1**: User requests an IP address for a DNS name.
-2. **2.2**: Route53 resolves the IP address from an alias record for the CloudFront distribution.
-3. **2.3**: User sends an HTTP request to CloudFront using the resolved IP address.
+1. User requests an IP address for a DNS name.
+2. Route53 resolves the IP address from an alias record for the CloudFront distribution.
+3. User sends an HTTP request to CloudFront using the resolved IP address.
 
 ## Usage
 
