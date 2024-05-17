@@ -6,10 +6,17 @@ A monorepo template for an AWS-hosted static website, complete with infrastructu
 
 ## Table of Contents
 
-- [Usage](#usage)
 - [Monorepo Layout](#monorepo-layout)
+- [Usage](#usage)
 - [Setup](#setup)
 - [Infrastructure and Flow Diagram](#infrastructure-and-flow-diagram)
+
+## Monorepo Layout
+
+- `fe/` - Frontend project
+- `infra/` - Infrastructure project
+- `config.json` - config file
+- `Makefile` - task automations
 
 ## Usage
 
@@ -18,40 +25,6 @@ A monorepo template for an AWS-hosted static website, complete with infrastructu
 3. Go through [Setup](#setup) steps.
 4. Edit `fe/src` files, `git add`, `git commit`, `git push`, etc.
 5. Vaildate `stg` deployment and run `deploy` workflow for `prd` env.
-
-### Makefile
-
-`make` is the default task runner in this project.
-
-Run `make` in your terminal:
-
-```sh
-make
-# Available targets:
-#   deploy - Build & deploy infrastructure and frontend
-#   fe-%   - Frontend (fe) targets
-#   infra-% - Infrastructure (infra) targets
-
-make fe
-# Available targets:
-#  test - test frontend
-#  build - build frontend
-#  deploy - deploy frontend
-
-make infra
-# Available targets:
-#  deploy - deploy infrastructure
-#  deploy-certificate - deploy ACM certificate
-#  deploy-github-oidc - deploy GitHub OIDC
-#  test - test infrastructure
-```
-
-## Monorepo Layout
-
-- `fe/` - Frontend project
-- `infra/` - Infrastructure project
-- `config.json` - config file
-- `Makefile` - task automations
 
 ## Setup
 
@@ -80,6 +53,33 @@ To enable the deployment workflow, configure the following Environments and Envi
   - `AWS_ROLE` - AWS CI/CD Role ARN
 
 Use `CDRoleArn` value from `infra-deploy` outputs to update `AWS_ROLE` environment variable for a corresponding environment in repository settings.
+
+### Makefile
+
+`make` is the default task runner in this project.
+
+Run `make` in your terminal:
+
+```sh
+make
+# Available targets:
+#   deploy - Build & deploy infrastructure and frontend
+#   fe-%   - Frontend (fe) targets
+#   infra-% - Infrastructure (infra) targets
+
+make fe
+# Available targets:
+#  test - test frontend
+#  build - build frontend
+#  deploy - deploy frontend
+
+make infra
+# Available targets:
+#  deploy - deploy infrastructure
+#  deploy-certificate - deploy ACM certificate
+#  deploy-github-oidc - deploy GitHub OIDC
+#  test - test infrastructure
+```
 
 ## Infrastructure and Flow Diagram
 
