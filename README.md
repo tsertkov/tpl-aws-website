@@ -7,9 +7,9 @@ A monorepo template for an AWS-hosted static website, complete with infrastructu
 ## Table of Contents
 
 - [Monorepo Layout](#monorepo-layout)
+- [Usage](#usage)
 - [CI/CD Setup](#cicd-setup)
 - [Infrastructure and Flow Diagram](#infrastructure-and-flow-diagram)
-- [Usage](#usage)
 
 ## Monorepo Layout
 
@@ -17,6 +17,26 @@ A monorepo template for an AWS-hosted static website, complete with infrastructu
 - `infra/` - Infrastructure project
 - `config.json` - config file
 - `Makefile` - task automations
+
+## Usage
+
+1. [Start new repository](https://github.com/new?template_name=tpl-aws-website&template_owner=tsertkov) from this template.
+2. Update README.md as necessary.
+3. Update config.json as necessary.
+4. [Setup CI/CD](#cicd-setup).
+5. ... and have fun.
+
+### Makefile
+
+Run `make` in your terminal. Here are the available targets:
+
+```sh
+make
+# Available targets:
+#   deploy - Build & deploy infrastructure and frontend
+#   fe-%   - Frontend (fe) targets
+#   infra% - Infrastructure (infra) targets
+```
 
 ## CI/CD Setup
 
@@ -65,23 +85,3 @@ Use `CDRoleArn` value from `infra-deploy` outputs to update `AWS_ROLE` environme
 4. CloudFront calls ViewerRequestFunction handling auth and basic redirects for static site urls.
 5. CloudFront forwards request to upstream S3 Web Bucket if requested file is not found in the cache.
 6. CloudFront logs request to S3 Logs Bucket.
-
-## Usage
-
-1. Create new repository from this template.
-2. Update README.md as necessary.
-3. Update config.json as necessary.
-4. [Setup CI/CD](#cicd-setup).
-5. ... and have fun.
-
-### Makefile
-
-Run `make` in your terminal. Here are the available targets:
-
-```sh
-make
-# Available targets:
-#   deploy - Build & deploy infrastructure and frontend
-#   fe-%   - Frontend (fe) targets
-#   infra% - Infrastructure (infra) targets
-```
