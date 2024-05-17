@@ -18,7 +18,7 @@ Set the following Environments and Environment Variables in GitHub repository se
   - `stg` - Staging
 - Environment variables:
   - `REGION` - AWS region environment is deployed to
-  - `AWS_CI_ROLE` - Deployment AWS Role ARN
+  - `AWS_CI_ROLE` - CICD AWS Role ARN
 
 ## Infrastructure and Flow Diagram
 
