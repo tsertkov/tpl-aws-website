@@ -2,7 +2,7 @@
 
 # tpl-aws-website
 
-A monorepo template for an AWS-hosted static website, complete with infrastructure code and CI/CD automations.
+A monorepo template for an AWS-hosted static website, complete with infrastructure code and CI/CD automations, multiple environments.
 
 ## Table of Contents
 
