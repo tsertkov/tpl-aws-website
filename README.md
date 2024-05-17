@@ -68,7 +68,7 @@ To enable the deployment workflow, configure the following Environments and Envi
 
 ```sh
 make infra-deploy-certificate
-make infra-deploy-github-oid
+make infra-deploy-github-oidc
 make infra-deploy ENV=stg
 make infra-deploy ENV=prd
 ```
