@@ -69,7 +69,6 @@ To get started, run `make` in your terminal. Here are the available targets:
 
 ```sh
 make
-# Output:
 # Available targets:
 #   deploy - Build & deploy infrastructure and frontend
 #   fe-%   - Frontend (fe) targets
