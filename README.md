@@ -6,17 +6,10 @@ A monorepo template for an AWS-hosted static website, complete with infrastructu
 
 ## Table of Contents
 
-- [Monorepo Layout](#monorepo-layout)
 - [Usage](#usage)
+- [Monorepo Layout](#monorepo-layout)
 - [CI/CD Setup](#cicd-setup)
 - [Infrastructure and Flow Diagram](#infrastructure-and-flow-diagram)
-
-## Monorepo Layout
-
-- `fe/` - Frontend project
-- `infra/` - Infrastructure project
-- `config.json` - config file
-- `Makefile` - task automations
 
 ## Usage
 
@@ -28,15 +21,37 @@ A monorepo template for an AWS-hosted static website, complete with infrastructu
 
 ### Makefile
 
-Run `make` in your terminal. Here are the available targets:
+`make` is the default task runner in this project.
+
+Run `make` in your terminal:
 
 ```sh
 make
 # Available targets:
 #   deploy - Build & deploy infrastructure and frontend
 #   fe-%   - Frontend (fe) targets
-#   infra% - Infrastructure (infra) targets
+#   infra-% - Infrastructure (infra) targets
+
+make fe
+# Available targets:
+#  test - test frontend
+#  build - build frontend
+#  deploy - deploy frontend
+
+make infra
+# Available targets:
+#  deploy - deploy infrastructure
+#  deploy-certificate - deploy ACM certificate
+#  deploy-github-oidc - deploy GitHub OIDC
+#  test - test infrastructure
 ```
+
+## Monorepo Layout
+
+- `fe/` - Frontend project
+- `infra/` - Infrastructure project
+- `config.json` - config file
+- `Makefile` - task automations
 
 ## CI/CD Setup
 
