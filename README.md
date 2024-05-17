@@ -8,7 +8,7 @@ A monorepo template for an AWS-hosted static website, complete with infrastructu
 
 - [Usage](#usage)
 - [Monorepo Layout](#monorepo-layout)
-- [CI/CD Setup](#cicd-setup)
+- [Setup](#setup)
 - [Infrastructure and Flow Diagram](#infrastructure-and-flow-diagram)
 
 ## Usage
@@ -53,7 +53,20 @@ make infra
 - `config.json` - config file
 - `Makefile` - task automations
 
-## CI/CD Setup
+## Setup
+
+### Deploy infrastructure
+
+Start with deploying AWS shared resources and deploy infrastructure for `stg` and `prd` environments.
+
+```sh
+make infra-deploy-certificate
+make infra-deploy-github-oidc
+make infra-deploy ENV=stg
+make infra-deploy ENV=prd
+```
+
+### CI/CD
 
 To enable the deployment workflow, configure the following Environments and Environment Variables in your GitHub repository settings:
 
@@ -64,22 +77,13 @@ To enable the deployment workflow, configure the following Environments and Envi
   - `AWS_REGION` - AWS region environment is deployed to
   - `AWS_ROLE` - AWS CI/CD Role ARN
 
-### Deploy infrastructure
-
-```sh
-make infra-deploy-certificate
-make infra-deploy-github-oidc
-make infra-deploy ENV=stg
-make infra-deploy ENV=prd
-```
-
 Use `CDRoleArn` value from `infra-deploy` outputs to update `AWS_ROLE` environment variable for a corresponding environment in repository settings.
 
 ## Infrastructure and Flow Diagram
 
 ![Infrastructure Diagram](https://raw.githubusercontent.com/tsertkov/tpl-aws-website/main/docs/infra-diagram.svg)
 
-### 0. Common AWS Resources
+### 0. Shared AWS Resources
 
 1. IAM OIDCProvider for GitHub.
 2. Route53 DNS zone for creating DNS records.
