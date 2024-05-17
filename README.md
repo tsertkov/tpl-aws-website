@@ -26,8 +26,8 @@ To enable the deployment workflow, configure the following Environments and Envi
   - `prd` - Production
   - `stg` - Staging
 - **Environment variables:**
-  - `REGION` - AWS region environment is deployed to
-  - `AWS_CI_ROLE` - CICD AWS Role ARN
+  - `AWS_REGION` - AWS region environment is deployed to
+  - `AWS_ROLE` - AWS CI/CD Role ARN
 
 ## Infrastructure and Flow Diagram
 

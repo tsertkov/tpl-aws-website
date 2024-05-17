@@ -49,7 +49,7 @@ Parameters:
     MinLength: 2
 
 Resources:
-  CIRole:
+  CDRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
@@ -64,7 +64,7 @@ Resources:
               StringLike:
                 token.actions.githubusercontent.com:sub: !Ref GithubTokenSub
       Policies:
-        - PolicyName: CIPolicy
+        - PolicyName: CDPolicy
           PolicyDocument:
             Version: '2012-10-17'
             Statement:
@@ -248,5 +248,5 @@ Outputs:
   DomainName:
     Value: !Ref DomainName
     Description: Website domain name
-  CIRoleArn:
-    Value: !GetAtt CIRole.Arn
+  CDRoleArn:
+    Value: !GetAtt CDRole.Arn
