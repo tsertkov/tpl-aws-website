@@ -77,7 +77,7 @@ Use `CDRoleArn` value from `infra-deploy` outputs to update `AWS_ROLE` environme
 
 ## Infrastructure and Flow Diagram
 
-![Infrastructure Diagram](https://raw.githubusercontent.com/tsertkov/tpl-aws-website/main/docs/tpl-aws-website.svg)
+![Infrastructure Diagram](https://raw.githubusercontent.com/tsertkov/tpl-aws-website/main/docs/infra-diagram.svg)
 
 ### 0. Common AWS Resources
 
