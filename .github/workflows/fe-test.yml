@@ -24,3 +24,5 @@ jobs:
             fe
       - name: Run tests
         run: make fe-test
+      - name: Test build run
+        run: make fe-build
