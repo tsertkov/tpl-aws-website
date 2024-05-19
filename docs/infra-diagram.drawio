@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-05-19T16:26:08.736Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="VbXF9vb37yWeEgS1ivOh" version="24.4.0" type="device">
+<mxfile host="Electron" modified="2024-05-19T16:29:28.752Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="X9D8I2kMZH_gGyF_oD6O" version="24.4.0" type="device">
   <diagram name="Page-1" id="SiJD-ng_YzuJyqXhKiwo">
     <mxGraphModel dx="954" dy="617" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -10,7 +10,7 @@
         <mxCell id="iDqsByRolU6ngndonZAR-2" value="CloudFormation&lt;br&gt;Github-oidc Stack" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=left;labelBackgroundColor=none;spacingLeft=7;fontColor=default;fontStyle=1;glass=0;shadow=0;" parent="1" vertex="1">
           <mxGeometry x="688" y="147" width="122" height="153" as="geometry" />
         </mxCell>
-        <mxCell id="yIIMlywsqg2m234oK09I-35" value="&lt;span style=&quot;&quot;&gt;CloudFormation&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;&quot;&gt;Website Stack&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;spacingLeft=7;spacingTop=0;fillColor=default;fontColor=default;fillStyle=auto;gradientColor=none;shadow=1;glass=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;fontStyle=1" parent="1" vertex="1">
+        <mxCell id="yIIMlywsqg2m234oK09I-35" value="&lt;span style=&quot;&quot;&gt;CloudFormation&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;&quot;&gt;Website Stack&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;spacingLeft=7;spacingTop=0;fillColor=default;fontColor=default;fillStyle=auto;gradientColor=none;shadow=0;glass=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="200" y="147" width="468" height="521" as="geometry" />
         </mxCell>
         <mxCell id="xSIVq86NVZy9tXW9cExc-10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;strokeColor=#009900;" parent="1" source="yIIMlywsqg2m234oK09I-1" target="yIIMlywsqg2m234oK09I-63" edge="1">
@@ -243,12 +243,6 @@
         </mxCell>
         <mxCell id="xSIVq86NVZy9tXW9cExc-7" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;u&gt;Infrastructure&lt;br&gt;&lt;/u&gt;Platform&lt;/h1&gt;&lt;p&gt;Provider: AWS&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font color=&quot;#cc6600&quot;&gt;User Flow&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="12" y="147" width="168" height="113" as="geometry" />
-        </mxCell>
-        <mxCell id="aziS1PCf4eZ0EtkE1LwG-19" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="12" y="130" as="sourcePoint" />
-            <mxPoint x="820" y="130" as="targetPoint" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="aziS1PCf4eZ0EtkE1LwG-24" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;IAM&lt;/span&gt;&lt;/div&gt;CD Role" style="text;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="499.62" y="183.5" width="60" height="30" as="geometry" />
