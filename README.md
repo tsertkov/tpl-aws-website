@@ -1,6 +1,6 @@
 [<img src="docs/use-this-template-btn.png" width="160" />](https://github.com/new?template_name=tpl-aws-website&template_owner=tsertkov)
 
-# tpl-aws-website 
+# tpl-aws-website
 
 A monorepo template for an AWS-hosted static website, complete with infrastructure code and CI/CD automations, multiple environments with optional basic auth protection.
 
@@ -83,7 +83,7 @@ make infra
 
 ## Infrastructure and Flow Diagram
 
-![Infrastructure Diagram](https://raw.githubusercontent.com/tsertkov/tpl-aws-website/main/docs/infra-diagram.svg)
+![Infrastructure Diagram](docs/infra-diagram.svg)
 
 ### 0. Shared AWS Resources
 
