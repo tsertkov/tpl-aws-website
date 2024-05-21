@@ -1,16 +1,16 @@
 name: 'e2etest - run'
-run-name: Run e2etest for ${{ inputs.environment || 'stg' }}
+run-name: Run e2etest for ${{ inputs.env || 'stg' }}
 
 on:
   workflow_call:
     inputs:
-      environment:
+      env:
         required: true
         default: stg
         type: string
   workflow_dispatch:
     inputs:
-      environment:
+      env:
         required: true
         default: stg
         type: choice
@@ -28,7 +28,7 @@ on:
 
 jobs:
   run-e2etest:
-    name: e2etest-${{ inputs.environment || 'stg' }}
+    name: e2etest-${{ inputs.env || 'stg' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -46,4 +46,4 @@ jobs:
       - name: 'Run e2etest'
         run: |
           make e2etest-init
-          make e2etest-run ENV=${{ inputs.environment || 'stg' }}
+          make e2etest-run ENV=${{ inputs.env || 'stg' }}
