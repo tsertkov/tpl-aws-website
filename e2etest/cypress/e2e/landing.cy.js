@@ -3,14 +3,16 @@ const DOMAIN = process.env.DOMAIN
 
 describe('tpl-aws-website landing', () => {
   beforeEach(() => {
-    cy.visit('/', Cypress.env('BASIC_AUTH')
-      ? {
-          auth: {
-            username: Cypress.env('BASIC_AUTH_USERNAME'),
-            password: Cypress.env('BASIC_AUTH_PASSWORD'),
+    cy.visit(
+      '/',
+      Cypress.env('BASIC_AUTH')
+        ? {
+            auth: {
+              username: Cypress.env('BASIC_AUTH_USERNAME'),
+              password: Cypress.env('BASIC_AUTH_PASSWORD'),
+            },
           }
-        }
-      : {}
+        : {},
     )
   })
 
