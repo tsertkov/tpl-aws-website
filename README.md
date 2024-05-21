@@ -4,6 +4,8 @@
 
 A monorepo template for an AWS-hosted static website, complete with infrastructure code and CI/CD automations, multiple environments, optional basic auth protection.
 
+💲 **$0.50** 🌟 Monthly AWS cost (**🌐 DNS Zone** + 🔧 *usage*)
+
 ## Table of Contents
 
 - [Infrastructure and Flow Diagram](#infrastructure-and-flow-diagram)
