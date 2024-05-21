@@ -8,8 +8,6 @@ on:
         required: true
         default: stg
         type: string
-      version:
-        type: string
   workflow_dispatch:
     inputs:
       environment:
@@ -19,8 +17,6 @@ on:
         options:
           - stg
           - prd
-      version:
-        type: string
   pull_request:
     branches: ['main']
     paths:
