@@ -1,6 +1,3 @@
-const ENV = process.env.ENV
-const DOMAIN = process.env.DOMAIN
-
 describe('tpl-aws-website landing', () => {
   beforeEach(() => {
     cy.visit(
