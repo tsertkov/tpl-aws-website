@@ -12,3 +12,12 @@ updates:
     groups:
       all-actions:
         patterns: [ "*" ]
+  - package-ecosystem: "npm"
+    directory: "/e2etest"
+    schedule:
+      interval: "weekly"
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+      development-dependencies:
+        dependency-type: "development"

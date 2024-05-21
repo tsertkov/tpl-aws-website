@@ -2,7 +2,7 @@
 
 # tpl-aws-website
 
-A monorepo template for an AWS-hosted static website, complete with infrastructure code and CI/CD automations, multiple environments with optional basic auth protection.
+A monorepo template for an AWS-hosted static website, complete with infrastructure code and CI/CD automations, multiple environments, optional basic auth protection.
 
 ## Table of Contents
 
@@ -23,6 +23,7 @@ Learn more infrastructure details from [the documentation](docs/infrastructure.m
 
 - `fe/` - Frontend project
 - `infra/` - Infrastructure project
+- `e2etest/` - End to end test project
 - `config.json` - config file
 - `Makefile` - task automations
 
