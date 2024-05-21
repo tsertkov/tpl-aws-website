@@ -24,8 +24,8 @@ Learn more infrastructure details from [the documentation](docs/infrastructure.m
 - [`fe/`](/fe) - Frontend project
 - [`infra/`](/infra) - Infrastructure project
 - [`e2etest/`](/e2etest) - End to end test project
-- `config.json` - config file
-- `Makefile` - task automations
+- [`config.json`](/config.json) - config file
+- [`Makefile`](/Makefile) - task automations
 
 Learn more about monorepo architecture from [the documentation](docs/monorepo.md).
 
