@@ -21,9 +21,9 @@ Learn more infrastructure details from [the documentation](docs/infrastructure.m
 
 ## Monorepo Layout
 
-- `fe/` - Frontend project
-- `infra/` - Infrastructure project
-- `e2etest/` - End to end test project
+- [`fe/`](/fe) - Frontend project
+- [`infra/`](/infra) - Infrastructure project
+- [`e2etest/`](/e2etest) - End to end test project
 - `config.json` - config file
 - `Makefile` - task automations
 
