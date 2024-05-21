@@ -1,5 +1,6 @@
 import { defineConfig } from 'cypress'
-import config from '../config.json' assert { type: 'json' }
+import { readFileSync } from 'fs'
+const config = JSON.parse(readFileSync('../config.json', 'utf8'))
 
 const ENV = process.env.ENV
 const DOMAIN = process.env.DOMAIN
