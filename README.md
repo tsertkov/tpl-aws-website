@@ -69,9 +69,7 @@ Use `CDRoleArn` value from `infra-deploy` outputs to update `AWS_ROLE` environme
 
 ### Makefile
 
-`make` is the default task runner in this project.
-
-Run `make` in your terminal:
+Use `make` to run tasks in this project.
 
 ```sh
 make
