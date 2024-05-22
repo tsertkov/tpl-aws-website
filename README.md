@@ -82,14 +82,14 @@ make
 
 make fe
 # Available targets:
-#  test - test frontend
-#  build - build frontend
-#  deploy - deploy frontend
+#   test - test frontend
+#   build - build frontend
+#   deploy - deploy frontend
 
 make infra
 # Available targets:
-#  deploy - deploy infrastructure
-#  deploy-certificate - deploy ACM certificate
-#  deploy-github-oidc - deploy GitHub OIDC
-#  test - test infrastructure
+#   deploy - deploy infrastructure
+#   deploy-certificate - deploy ACM certificate
+#   deploy-github-oidc - deploy GitHub OIDC
+#   test - test infrastructure
 ```
