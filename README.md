@@ -12,6 +12,7 @@ A monorepo template for an AWS-hosted static website, complete with infrastructu
 - [Monorepo Layout](#monorepo-layout)
 - [Usage](#usage)
 - [Setup](#setup)
+- [Makefile](#makefile)
 
 ## Infrastructure and Flow Diagram
 
@@ -67,7 +68,7 @@ To enable the deployment workflow, configure the following Environments and Envi
 
 Use `CDRoleArn` value from `infra-deploy` outputs to update `AWS_ROLE` environment variable for a corresponding environment in repository settings.
 
-### Makefile
+## Makefile
 
 Use `make` to run tasks in this project:
 
