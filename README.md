@@ -1,4 +1,4 @@
-[<img src="docs/assets/use-this-template-btn.png" width="160" />](https://github.com/new?template_name=tpl-aws-website&template_owner=tsertkov)
+[<img src="docs/assets/use-this-template-0.50.svg" height="40" />](https://github.com/new?template_name=tpl-aws-website&template_owner=tsertkov)
 
 # tpl-aws-website
 
@@ -91,4 +91,13 @@ make infra
 #   deploy-certificate - deploy ACM certificate
 #   deploy-github-oidc - deploy GitHub OIDC
 #   test - test infrastructure
+
+make e2etest
+# Available targets:
+#   run - run e2e tests
+#   init - init dependencies
+#   init-test - init test dependencies
+#   test - run tests
+#   npm-run-% - run any npm script
+#   npm-% - run any npm command
 ```
