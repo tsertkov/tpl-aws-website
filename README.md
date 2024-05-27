@@ -26,7 +26,7 @@ Learn more infrastructure details from [the documentation](docs/infrastructure.m
 
 - [`fe/`](/fe) - Frontend project
 - [`infra/`](/infra) - Infrastructure project
-- [`e2etest/`](/e2etest) - End to end test project
+- [`e2etest/`](/e2etest) - End-to-end test project
 - [`config.json`](/config.json) - Config file
 - [`Makefile`](/Makefile) - Task automations
 
